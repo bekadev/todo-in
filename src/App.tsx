@@ -51,6 +51,7 @@ function App() {
     }
 
     function addTask(title: string, todolistId: string) {
+        // test commit
         let task = {id: v1(), title: title, isDone: false};
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
