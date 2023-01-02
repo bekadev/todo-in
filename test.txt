@@ -15,7 +15,7 @@ store.XXX(() => {
 
 store.dispatch({type: 'ANY'})
 
-// Что нужно написать вместо XXX, чтобы в консоли увидеть 'state changed'?
+// Что нужно написать вместо XXX, чтобы в консоли увидеть 'state changed'?    || subscribe
 
 
 import {combineReducers, createStore} from 'redux'
@@ -36,7 +36,7 @@ store.subscribe(() => {
 
 store.dispatch({type: 'ANY'})
 
-//Что нужно написать вместо XXX, чтобы получить актуальный стейт?
+//Что нужно написать вместо XXX, чтобы получить актуальный стейт? || store.getState()
 
 
 import {combineReducers, createStore} from 'redux'
@@ -86,7 +86,7 @@ ReactDOM.render(<div>
     document.getElementById('root')
 )
 
-// Что нужно написать вместо XXX, чтобы отрендерить список юзеров?
+// Что нужно написать вместо XXX, чтобы отрендерить список юзеров? || useSelector(selector)
 // ❗ Ответ дать минимально возможным объёмом кода
 
 
@@ -155,7 +155,7 @@ function Counter() {
 ReactDOM.render(
     <Counter/>, document.getElementById('root')
 );
-// Что надо написать вместо XXX и YYY, чтобы код работал? Напишите через пробел.
+// Что надо написать вместо XXX и YYY, чтобы код работал? Напишите через пробел. || useReducer useState
 
 
 import React from 'react'
@@ -224,7 +224,7 @@ ReactDOM.render(<div>
     document.getElementById('root')
 )
 
-// Что нужно написать вместо XXX, YYY и ZZZ, чтобы отобразился список студентов?
+// Что нужно написать вместо XXX, YYY и ZZZ, чтобы отобразился список студентов? || Provider store appStore
 
 
 import {createStore} from 'redux'
@@ -275,6 +275,7 @@ const StudentList = () => {
     const studentsList = students.map(s => {
         const removeStudent = () => {
             XXX(YYY( ZZZ))
+            dispatch(RemoveStudentAC(s.id))
         }
         return (
             <li key={s.id}
@@ -300,5 +301,5 @@ ReactDOM.render(<div>
     document.getElementById('root')
 )
 
-// Что нужно написать вместо XXX, YYY и ZZZ, чтобы при клике по имени студент
+// Что нужно написать вместо XXX, YYY и ZZZ, чтобы при клике по имени студент || dispatch RemoveStudentAC s.id
 // удалялся из списка? Напишите через пробел.
