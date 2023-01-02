@@ -16,7 +16,7 @@ type TodolistWithReduxPropsType = {
     todolist: TodolistType
 }
 
-export const TodolistWithRedux =  ({todolist}: TodolistWithReduxPropsType) => {
+export const TodolistWithRedux = memo( ({todolist}: TodolistWithReduxPropsType) => {
     console.log('todolist')
 
     const {id, title, filter} = todolist
@@ -103,5 +103,5 @@ export const TodolistWithRedux =  ({todolist}: TodolistWithReduxPropsType) => {
             </Button>
         </div>
     </div>
-};
+});
 
