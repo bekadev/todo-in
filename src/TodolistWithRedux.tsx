@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback} from 'react';
+import React, {ChangeEvent, memo, useCallback} from 'react';
 import {TodolistType} from './App';
 import {EditableSpan} from './EditableSpan';
 import IconButton from '@mui/material/IconButton/IconButton';
@@ -16,7 +16,9 @@ type TodolistWithReduxPropsType = {
     todolist: TodolistType
 }
 
-export const TodolistWithRedux = ({todolist}: TodolistWithReduxPropsType) => {
+export const TodolistWithRedux =  ({todolist}: TodolistWithReduxPropsType) => {
+    console.log('todolist')
+
     const {id, title, filter} = todolist
 
     let tasks = useSelector<AppRootStateType, Array<TaskType>>(state => state.tasks[id])
@@ -30,23 +32,24 @@ export const TodolistWithRedux = ({todolist}: TodolistWithReduxPropsType) => {
 
     const dispatch = useDispatch()
 
-    function changeTodolistTitle(title: string) {
+    const changeTodolistTitle = useCallback( (title: string) => {
         dispatch(changeTodolistTitleAC(id, title))
-    }
+    }, [dispatch])
 
-    function removeTodolist() {
+    const removeTodolist = useCallback( () => {
         dispatch(removeTodolistAC(id))
-    }
+    }, [dispatch])
 
     const addTask = useCallback( (title: string) => {
         dispatch(addTaskAC(title,id))
     }, [dispatch])
 
-    function changeFilter(value: FilterValuesType, todolistId: string) {
+    const changeFilter = useCallback( (value: FilterValuesType, todolistId: string) => {
         dispatch(changeTodolistFilterAC(todolistId, value))
-    }
+    }, [dispatch])
 
-    const FilterClickHandler = (filter: FilterValuesType) => () => dispatch(changeTodolistFilterAC(id, filter))
+    const FilterClickHandler = useCallback(  (filter: FilterValuesType) =>  () =>
+        dispatch(changeTodolistFilterAC(id, filter)), [dispatch])
 
     return <div>
         <h3> <EditableSpan value={title} onChange={changeTodolistTitle} />
