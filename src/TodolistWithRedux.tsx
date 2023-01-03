@@ -48,8 +48,7 @@ export const TodolistWithRedux = memo( ({todolist}: TodolistWithReduxPropsType) 
         dispatch(changeTodolistFilterAC(todolistId, value))
     }, [dispatch])
 
-    const FilterClickHandler = useCallback(  (filter: FilterValuesType) =>  () =>
-        dispatch(changeTodolistFilterAC(id, filter)), [dispatch])
+    const FilterClickHandler = useCallback(  (filter: FilterValuesType) =>  () => dispatch(changeTodolistFilterAC(id, filter)), [dispatch])
 
     return <div>
         <h3> <EditableSpan value={title} onChange={changeTodolistTitle} />
@@ -104,4 +103,3 @@ export const TodolistWithRedux = memo( ({todolist}: TodolistWithReduxPropsType) 
         </div>
     </div>
 });
-
