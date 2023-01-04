@@ -58,6 +58,7 @@ export const TodolistWithRedux = memo( ({todolist}: TodolistWithReduxPropsType) 
         </h3>
         <AddItemForm addItem={addTask}/>
         {/*test*/}
+        {/*test*/}
         <div>
             {
                 tasks.map(t => {
